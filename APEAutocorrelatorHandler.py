@@ -22,9 +22,9 @@ class APEAutocorrelatorHandler(object):
         return int(ape_device.query("FITTYPE?"))
     def set_filt(self, num):
         ape_device.send("FITTYPE "+str(int(num)))
-    def get_scanrange(self):
+    def get_scan(self):
         return int(ape_device.query("SCANRANGE?"))
-    def set_scanrange(self, num):
+    def set_scan(self, num):
         ape_device.send("SCANRANGE "+str(int(num)))
     def get_gain(self):
         return int(ape_device.query("GAIN?"))

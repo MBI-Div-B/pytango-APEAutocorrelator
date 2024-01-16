@@ -44,10 +44,6 @@ class APEAutocorrelator(Device):
     Port = device_property(
         dtype=str,
     )
-    Baudrate = device_property(
-        dtype=int,
-        default_value=9600
-    )
 
     averaging = attribute(
         label= 'set number of measurements used for averaging',
@@ -126,11 +122,6 @@ class APEAutocorrelator(Device):
         dtype = 'DevVarDoubleArray',
         access = AttrWriteType.READ
     )
-    rawData = attribute(
-        label = 'Raw Data',
-        dtype = 'DevVarDoubleArray',
-        access = AttrWriteType.READ
-    )
     ### more Data attributes to be added
 
     shutterFix = attribute(
@@ -162,11 +153,109 @@ class APEAutocorrelator(Device):
         access = AttrWriteType.READ
     )
     crystalType = attribute(
-        label = 'Crystal type',
+        label='Crystal type',
         dtype = 'DevString',
         access = AttrWriteType.READ
     )
 
 
     def init_device(self):
+        corr = APEAutocorrelatorHandler.APEAutocorrelatorHandler(self.Host, self.Port)
+    
+
+    def read_averaging(self):
+        return corr.get_avg()
+
+    def write_averaging(self,num):
+        corr.set_avg(num)
         
+    def read_res(self):
+        return corr.get_res()
+
+    def write_res(self,num):
+        corr.set_res(num)
+
+    def read_fitType(self):
+        return corr.get_fit()
+
+    def write_fitType(self,num):
+        corr.set_fit(num)
+
+    def read_measStatus(self):
+        return corr.running()
+    
+    def read_filtering(self):
+        return corr.get_filt()
+
+    def write_filtering(self,num):
+        corr.set_filt(num)
+    
+    def read_scanRange(self):
+        return corr.get_scan()
+
+    def write_scanRange(self,num):
+        corr.set_scan(num)
+
+    def read_gain(self):
+        return corr.get_gain()
+
+    def write_gain(self,num):
+        corr.set_gain(num)
+
+    def read_autoGain(self):
+        return corr.get_autoGain()
+
+    def write_autoGain(self,num):
+        corr.set_autoGain(num)
+
+    def read_sensitivity(self):
+        return corr.get_sensitivity()
+
+    def write_sensitivity(self,num):
+        corr.set_sensitivity(num)
+
+    def read_trigLvl(self):
+        return corr.get_trigLvl()
+    
+    def read_trigDly(self):
+        return corr.get_trigDly
+
+    def read_trigFrq(self):
+        return corr.get_trigFrq()
+    
+    def read_trigImp(self):
+        return corr.get_trigImp()
+        
+    def read_rawData(self):
+        return corr.get_rawData()
+
+    def read_shutterFix(self):
+        return corr.get_shutterFix()
+
+    def write_shutterFix(self,num):
+        corr.set_shutterFix(num)
+
+    def read_shutterScan(self):
+        return corr.get_shutterScan()
+
+    def write_shutterScan(self,num):
+        corr.set_shutterScan(num)
+
+    def read_tune(self):
+        return corr.get_tuning()
+
+    def write_tune(self,num):
+        corr.set_tuning(num)
+
+    def read_lambdaTune(self):
+        return corr.get_labdaTuning()
+
+    def write_lambdaTune(self,num):
+        corr.set_labdaTuning(num)
+    
+    def read_crystalMove(self):
+        return corr.get_crysMove()
+
+    def read_crystalType(self):
+        return corr.get_crysType()
+    
