@@ -12,11 +12,11 @@ class avgEnum(IntEnum):
     _16 = 4
 
 class resEnum(IntEnum):
-    _0 = 0
-    _2 = 1
-    _4 = 2
-    _8 = 3
-    _16 = 4
+    _200 = 0
+    _500 = 1
+    _1000 = 2
+    _1500 = 3
+    _2000 = 4
 
 class fitEnum(IntEnum):
     OFF = 0

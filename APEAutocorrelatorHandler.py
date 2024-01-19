@@ -10,7 +10,7 @@ class APEAutocorrelatorHandler(object):
     def set_avg(self, num):
         self.dev.send(":STATUS:AVERAGE "+str(num))
     def get_res(self):
-        return self.dev.query(":STATUS:RESOLUTION?")
+        return {"200":0,"500":1,"1000":2, "1500":3, "2000":4}[self.dev.query(":STATUS:RESOLUTION?")]
     def set_res(self, num):
         self.dev.send(":STATUS:RESOLUTION "+str(num))  
     def get_fit(self):
