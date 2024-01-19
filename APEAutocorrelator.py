@@ -121,7 +121,7 @@ class APEAutocorrelator(Device):
     )
     rawData = attribute(
         label = 'Raw Data',
-        dtype = np.float64,
+        dtype = (float,),
         access = AttrWriteType.READ
     )
     ### more Data attributes to be added
