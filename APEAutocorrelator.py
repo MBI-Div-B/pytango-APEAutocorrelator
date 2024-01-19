@@ -260,3 +260,5 @@ class APEAutocorrelator(Device):
     def read_crystalType(self):
         return corr.get_crysType()
     
+if __name__ == "__main__":
+    CoherentLabMaxTop.run_server()
