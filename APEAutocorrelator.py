@@ -261,4 +261,4 @@ class APEAutocorrelator(Device):
         return corr.get_crysType()
     
 if __name__ == "__main__":
-    CoherentLabMaxTop.run_server()
+    APEAutocorrelator.run_server()
