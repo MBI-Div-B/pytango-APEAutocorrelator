@@ -228,7 +228,7 @@ class APEAutocorrelator(Device):
         return self.corr.get_trigLvl()
     
     def read_trigDly(self):
-        return self.corr.get_trigDly
+        return self.corr.get_trigDly()
 
     def read_trigFrq(self):
         return self.corr.get_trigFrq()
