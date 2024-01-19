@@ -36,7 +36,7 @@ class APEAutocorrelatorHandler(object):
     def set_autoGain(self, num):
         self.dev.send(":DETECTOR:AUTOGAIN "+str(int(num)))
     def get_sensitivity(self):
-        return {"1":0, "10":1, "100":2}[int(self.dev.query(":DETECTOR:SENSITIVITY?"))]
+        return {"1":0, "10":1, "100":2}[self.dev.query(":DETECTOR:SENSITIVITY?")]
     def set_sensitivity(self, num):
         self.dev.send(":DETECTOR:SENSITIVITY "+["1","10","100"][num])
     def get_trigLvl(self):
