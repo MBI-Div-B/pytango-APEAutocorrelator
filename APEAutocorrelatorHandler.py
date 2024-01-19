@@ -4,10 +4,9 @@ import numpy as np
 class APEAutocorrelatorHandler(object):
     def __init__(self, host, port, name = "Ape device"):
         self.dev = ape_device.ape_device(host, port, name)
-        print(self.dev.idn())
     def get_avg(self):
         test = self.dev.query(":status:average?")
-        return {"OFF":0,"LOW (2)":1,"Medium (4)":2, "High (8)":3, "Very high (16)":4}[test]
+        return {"Off":0,"Low (2)":1,"Medium (4)":2, "High (8)":3, "Very high (16)":4}[test]
     def set_avg(self, num):
         self.dev.send(":STATUS:AVERAGE "+str(num))
     def get_res(self):
@@ -52,7 +51,6 @@ class APEAutocorrelatorHandler(object):
         acf_binary_data = bytes(self.dev.query(":ACF:DACF?",block=True))
         acf = np.fromstring(acf_binary_data, dtype=np.float64)
         acf = acf.reshape(int(acf.shape[0]/2),2)
-        print(acf.T)
         return acf.T
     ### not usre what data format to exlpect and how to extract
     ### to be done when device in avalablie 
