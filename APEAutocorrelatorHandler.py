@@ -51,7 +51,7 @@ class APEAutocorrelatorHandler(object):
     def get_trigImp(self):
         return int(self.dev.query(":TRIGGER:IMP?"))
     def get_rawData(self):
-        return self.dev.query(":ACF:DATA?")
+        return self.dev.query(":ACF:DATA?",block=True)
     ### not usre what data format to exlpect and how to extract
     ### to be done when device in avalablie 
     def get_shutterFix(self):
