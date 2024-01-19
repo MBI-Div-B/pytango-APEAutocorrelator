@@ -201,9 +201,9 @@ class APEAutocorrelator(Device):
         self.set_state(DevState.INIT)
         self.corr = APEAutocorrelatorHandler.APEAutocorrelatorHandler(self.Host, self.Port)
         self.set_state(DevState.ON)
-        _aveInte = 0
-        _maxInte = 0
-        _minInte = 0
+        self._aveInte = 0
+        self._maxInte = 0
+        self._minInte = 0
         
     
 
@@ -278,20 +278,20 @@ class APEAutocorrelator(Device):
         return self.corr.get_dispData()
     
     def read_aveInte(self):
-        _aveInte, _minInte, _maxInte = get_meanData
-        return _aveInte
+        self._aveInte, self._minInte, self._maxInte = get_meanData
+        return self._aveInte
     
     def read_minInte(self):
-        return _minInte
+        return self._minInte
 
     def read_maxInte(self):
-        return _maxInte
+        return self._maxInte
 
     def read_FWHM(self):
-        return get_FWHM()
+        return self.corr.get_FWHM()
 
     def read_FITFWHM(self):
-        return get_FITFWHM()
+        return self.corr.get_FITFWHM()
 
     def read_shutterFix(self):
         return self.corr.get_shutterFix()
