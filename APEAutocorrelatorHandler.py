@@ -55,8 +55,8 @@ class APEAutocorrelatorHandler(object):
         acf_binary_data = bytes(self.dev.query(":ACF:DACF?",block=True))
         acf = np.fromstring(acf_binary_data, dtype=np.float64)
         acf = acf.reshape(int(acf.shape[0]/2),2)
-        print(acf.T)
-        return acf.T
+        print(acf)
+        return acf
     ### not usre what data format to exlpect and how to extract
     ### to be done when device in avalablie 
     def get_shutterFix(self):
