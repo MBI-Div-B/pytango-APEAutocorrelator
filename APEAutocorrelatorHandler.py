@@ -11,7 +11,7 @@ class APEAutocorrelatorHandler(object):
     def set_avg(self, num):
         self.dev.send(":STATUS:AVERAGE "+str(num))
     def get_res(self):
-        return int(self.dev.query(":STATUS:RESOLUTION?"))
+        return self.dev.query(":STATUS:RESOLUTION?")
     def set_res(self, num):
         self.dev.send(":STATUS:RESOLUTION "+str(num))  
     def get_fit(self):
@@ -25,7 +25,7 @@ class APEAutocorrelatorHandler(object):
     def set_filt(self, num):
         self.dev.send(":STATUS:FILTER "+str(int(num)))
     def get_scan(self):
-        return int(self.dev.query(":MOTOR:SCANRANGE?"))
+        return self.dev.query(":MOTOR:SCANRANGE?")
     def set_scan(self, num):
         self.dev.send(":MOTOR:SCANRANGE "+str(int(num)))
     def get_gain(self):
@@ -43,7 +43,7 @@ class APEAutocorrelatorHandler(object):
     def get_trigLvl(self):
         return int(self.dev.query(":TRIGGER:LEVEL?"))
     def get_trigDly(self):
-        return int(self.dev.query(":TRIGGER:DELAY?"))
+        return self.dev.query(":TRIGGER:DELAY?")
     def get_trigFrq(self):
         return int(self.dev.query(":TRIGGER:FREQUENCY?"))
     def get_trigImp(self):
