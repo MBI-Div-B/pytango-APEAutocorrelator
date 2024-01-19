@@ -54,7 +54,7 @@ class APEAutocorrelator(Device):
     )
     res = attribute(
         label= 'set number of data points used for averaging',
-        dtype= resEnum,
+        dtype= str,
         access= AttrWriteType.READ_WRITE
     )
     fitType = attribute(
@@ -74,7 +74,7 @@ class APEAutocorrelator(Device):
     )
     scanRange = attribute(
         label = 'Set scan range',
-        dtype = scanEnum,
+        dtype = str,
         unit = 'fs',
         access = AttrWriteType.READ_WRITE
     )
@@ -103,7 +103,7 @@ class APEAutocorrelator(Device):
     )
     trigDly = attribute(
         label = 'Trigger delay',
-        dtype = 'DevLong',
+        dtype = str,
         unit = 'us',
         access = AttrWriteType.READ
     )
@@ -273,3 +273,10 @@ class APEAutocorrelator(Device):
     
 if __name__ == "__main__":
     APEAutocorrelator.run_server()
+
+
+        '''
+         avereage ["OFF","LOW (2)","Medium (4)", High (8), Very high (16)]
+         setscanrange
+
+        '''
