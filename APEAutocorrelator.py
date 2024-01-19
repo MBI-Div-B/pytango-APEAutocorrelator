@@ -165,9 +165,11 @@ class APEAutocorrelator(Device):
         self.set_state(DevState.INIT)
         self.corr = APEAutocorrelatorHandler.APEAutocorrelatorHandler(self.Host, self.Port)
         self.set_state(DevState.ON)
+        self.debug_stream("init done")
     
 
     def read_averaging(self):
+        self.debug_stream("in averageing")
         return self.corr.get_avg()
 
     def write_averaging(self,num):
