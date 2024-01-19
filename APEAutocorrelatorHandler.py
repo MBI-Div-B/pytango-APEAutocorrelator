@@ -26,7 +26,7 @@ class APEAutocorrelatorHandler(object):
     def get_scan(self):
         return {"500":0,"1500":1,"5000":2, "15000":3, "50000":4, "150000":5}[self.dev.query(":MOTOR:SCANRANGE?")]
     def set_scan(self, num):
-        self.dev.send(":MOTOR:SCANRANGE "+str(int(num)))
+        self.dev.send(":MOTOR:SCANRANGE "+["500","1500","5000", "15000", "50000", "150000"][num])
     def get_gain(self):
         return int(self.dev.query(":DETECTOR:GAIN?"))
     def set_gain(self, num):
