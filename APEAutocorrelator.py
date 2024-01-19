@@ -163,105 +163,105 @@ class APEAutocorrelator(Device):
     def init_device(self):
         Device.init_device(self)
         self.set_state(DevState.INIT)
-        corr = APEAutocorrelatorHandler.APEAutocorrelatorHandler(self.Host, self.Port)
+        self.corr = APEAutocorrelatorHandler.APEAutocorrelatorHandler(self.Host, self.Port)
         self.set_state(DevState.ON)
     
 
     def read_averaging(self):
-        return corr.get_avg()
+        return self.corr.get_avg()
 
     def write_averaging(self,num):
-        corr.set_avg(num)
+        self.corr.set_avg(num)
         
     def read_res(self):
-        return corr.get_res()
+        return self.corr.get_res()
 
     def write_res(self,num):
-        corr.set_res(num)
+        self.corr.set_res(num)
 
     def read_fitType(self):
-        return corr.get_fit()
+        return self.corr.get_fit()
 
     def write_fitType(self,num):
-        corr.set_fit(num)
+        self.corr.set_fit(num)
 
     def read_measStatus(self):
-        return corr.running()
+        return self.corr.running()
     
     def read_filtering(self):
-        return corr.get_filt()
+        return self.corr.get_filt()
 
     def write_filtering(self,num):
-        corr.set_filt(num)
+        self.corr.set_filt(num)
     
     def read_scanRange(self):
-        return corr.get_scan()
+        return self.corr.get_scan()
 
     def write_scanRange(self,num):
-        corr.set_scan(num)
+        self.corr.set_scan(num)
 
     def read_gain(self):
-        return corr.get_gain()
+        return self.corr.get_gain()
 
     def write_gain(self,num):
-        corr.set_gain(num)
+        self.corr.set_gain(num)
 
     def read_autoGain(self):
-        return corr.get_autoGain()
+        return self.corr.get_autoGain()
 
     def write_autoGain(self,num):
-        corr.set_autoGain(num)
+        self.corr.set_autoGain(num)
 
     def read_sensitivity(self):
-        return corr.get_sensitivity()
+        return self.corr.get_sensitivity()
 
     def write_sensitivity(self,num):
-        corr.set_sensitivity(num)
+        self.corr.set_sensitivity(num)
 
     def read_trigLvl(self):
-        return corr.get_trigLvl()
+        return self.corr.get_trigLvl()
     
     def read_trigDly(self):
-        return corr.get_trigDly
+        return self.corr.get_trigDly
 
     def read_trigFrq(self):
-        return corr.get_trigFrq()
+        return self.corr.get_trigFrq()
     
     def read_trigImp(self):
-        return corr.get_trigImp()
+        return self.corr.get_trigImp()
         
     '''def read_rawData(self):
-        return corr.get_rawData()
+        return self.corr.get_rawData()
 '''
     def read_shutterFix(self):
-        return corr.get_shutterFix()
+        return self.corr.get_shutterFix()
 
     def write_shutterFix(self,num):
-        corr.set_shutterFix(num)
+        self.corr.set_shutterFix(num)
 
     def read_shutterScan(self):
-        return corr.get_shutterScan()
+        return self.corr.get_shutterScan()
 
     def write_shutterScan(self,num):
-        corr.set_shutterScan(num)
+        self.corr.set_shutterScan(num)
 
     def read_tune(self):
-        return corr.get_tuning()
+        return self.corr.get_tuning()
 
     def write_tune(self,num):
-        corr.set_tuning(num)
+        self.corr.set_tuning(num)
 
     def read_lambdaTune(self):
-        return corr.get_labdaTuning()
+        return self.corr.get_labdaTuning()
 
     def write_lambdaTune(self,num):
-        corr.set_labdaTuning(num)
+        self.corr.set_labdaTuning(num)
     
     def read_crystalMove(self):
-        return corr.get_crysMove()
+        return self.corr.get_crysMove()
 
     def read_crystalType(self):
-        return corr.get_crysType()
+        return self.corr.get_crysType()
     
 if __name__ == "__main__":
     APEAutocorrelator.run_server()
