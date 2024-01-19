@@ -162,10 +162,11 @@ class APEAutocorrelator(Device):
 
     def init_device(self):
         Device.init_device(self)
+        self.debug_stream("init done")
         self.set_state(DevState.INIT)
         self.corr = APEAutocorrelatorHandler.APEAutocorrelatorHandler(self.Host, self.Port)
         self.set_state(DevState.ON)
-        self.debug_stream("init done")
+        
     
 
     def read_averaging(self):
