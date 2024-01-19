@@ -23,18 +23,18 @@ class fitEnum(IntEnum):
     SECH2 = 2
     LORENTZ = 3
 
-class scanEnum(Flag):
+class scanEnum(IntEnum):
     _0 = 0
-    _150fs = 150
-    _500fs = 500
-    _1500fs = 1500
-    _15ps = 15000
-    _150ps = 150000
+    _150fs = 1 #150
+    _500fs = 2 #500
+    _1500fs = 3 #1500
+    _15ps = 4 #15000
+    _150ps = 5 #150000
 
-class sensEnum(Flag):
-    _1 = 1
-    _10 = 10
-    _100 = 100
+class sensEnum(IntEnum):
+    _1 = 0 # 1
+    _10 = 1 #10
+    _100 = 2 #100
 
 
 class APEAutocorrelator(Device):
