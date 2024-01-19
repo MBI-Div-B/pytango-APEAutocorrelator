@@ -59,9 +59,9 @@ class APEAutocorrelatorHandler(object):
         return acf.T
     def get_meanData(self):
         temp = self.dev.query(":ACF:DACF?").split(";")
+        print(temp)
         return float(temp[0]),float(temp[3]),float(temp[4])
     def get_FWHM(self):
-        print(self.dev.query(":ACF:FWHM?"))
         return float(self.dev.query(":ACF:FWHM?"))
     def get_FITFWHM(self):
         return float(self.dev.query(":ACF:FITFWHM?"))
