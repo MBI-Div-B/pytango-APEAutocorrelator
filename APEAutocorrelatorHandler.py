@@ -53,6 +53,7 @@ class APEAutocorrelatorHandler(object):
         return int(self.dev.query(":TRIGGER:IMP?"))
     def get_rawData(self):
         acf_binary_data = self.dev.query(":ACF:DATA?",block=True)
+        print(acf_binary_data)
         acf = np.fromstring(acf_binary_data, dtype=np.float64)
         print(acf)
         return acf
