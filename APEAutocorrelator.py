@@ -48,7 +48,7 @@ class APEAutocorrelator(Device):
 
     averaging = attribute(
         label= 'set number of measurements used for averaging',
-        dtype= avgEnum,
+        dtype= str,
         access= AttrWriteType.READ_WRITE
     )
     res = attribute(
