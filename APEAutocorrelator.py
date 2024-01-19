@@ -103,7 +103,8 @@ class APEAutocorrelator(Device):
     )
     trigDly = attribute(
         label = 'Trigger delay',
-        dtype = str,
+        dtype = int,
+        unit = "us",
         access = AttrWriteType.READ
     )
     trigFrq = attribute(
