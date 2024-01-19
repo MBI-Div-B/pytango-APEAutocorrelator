@@ -118,12 +118,12 @@ class APEAutocorrelator(Device):
         unit = 'Ohms',
         access = AttrWriteType.READ
     )
-    '''rawData = attribute(
+    rawData = attribute(
         label = 'Raw Data',
-        dtype = list,
+        dtype = str,
         access = AttrWriteType.READ
     )
-    ### more Data attributes to be added'''
+    ### more Data attributes to be added
 
     shutterFix = attribute(
         label = 'Set fix-shutter poition',
