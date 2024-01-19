@@ -1,7 +1,7 @@
 import APEAutocorrelatorHandler
 from tango import AttrWriteType, DevState, AttrWriteType, DispLevel, DebugIt
 from tango.server import Device, attribute, command, device_property
-from enum import IntEnum
+from enum import IntEnum, Enum
 
 class avgEnum(IntEnum):
     _0 = 0
@@ -23,7 +23,7 @@ class fitEnum(IntEnum):
     SECH2 = 2
     LORENTZ = 3
 
-class scanEnum(IntEnum):
+class scanEnum(Enum):
     _0 = 0
     _150fs = 150
     _500fs = 500
@@ -31,7 +31,7 @@ class scanEnum(IntEnum):
     _15ps = 15000
     _150ps = 150000
 
-class sensEnum(IntEnum):
+class sensEnum(Enum):
     _1 = 1
     _10 = 10
     _100 = 100
