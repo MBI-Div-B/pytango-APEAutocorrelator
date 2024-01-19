@@ -54,7 +54,7 @@ class APEAutocorrelatorHandler(object):
     def get_rawData(self):
         acf_binary_data = self.dev.query(":ACF:DATA?",block=True)
         acf = np.fromstring(acf_binary_data, dtype=np.float64)
-        print(acf.type)
+        print(acf)
         return acf
     ### not usre what data format to exlpect and how to extract
     ### to be done when device in avalablie 
