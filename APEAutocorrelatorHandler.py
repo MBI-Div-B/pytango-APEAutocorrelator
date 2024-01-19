@@ -6,10 +6,7 @@ class APEAutocorrelatorHandler(object):
         self.dev = ape_device.ape_device(host, port, name)
         print(self.dev.idn())
     def get_avg(self):
-        print("test1")
-        print(self.dev.query(":status:fittype?"))
         test = self.dev.query(":status:average?")
-        print("test")
         return test
     def set_avg(self, num):
         self.dev.send(":STATUS:AVERAGE "+str(num))
