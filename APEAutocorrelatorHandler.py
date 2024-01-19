@@ -52,7 +52,7 @@ class APEAutocorrelatorHandler(object):
     def get_trigImp(self):
         return int(self.dev.query(":TRIGGER:IMP?"))
     def get_rawData(self):
-        acf_binary_data = bytes(self.dev.query(":ACF:DATA?",block=True))
+        acf_binary_data = bytes(self.dev.query(":ACF:DACF?",block=True))
         acf = np.fromstring(acf_binary_data, dtype=np.float64)
         acf = acf.reshape(int(acf.shape[0]/2),2)
         print(acf.T)
