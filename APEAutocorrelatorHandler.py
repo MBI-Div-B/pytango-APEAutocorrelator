@@ -43,6 +43,7 @@ class APEAutocorrelatorHandler(object):
     def get_trigLvl(self):
         return int(self.dev.query(":TRIGGER:LEVEL?"))
     def get_trigDly(self):
+        print(self.dev.query(":TRIGGER:DELAY?"))
         return self.dev.query(":TRIGGER:DELAY?")
     def get_trigFrq(self):
         return int(self.dev.query(":TRIGGER:FREQUENCY?"))
