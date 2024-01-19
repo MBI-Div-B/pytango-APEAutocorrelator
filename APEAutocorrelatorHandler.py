@@ -1,7 +1,7 @@
 import ape_device
 
 class APEAutocorrelatorHandler(object):
-    def __init__(self, host, port, name):
+    def __init__(self, host, port, name = "Ape device"):
         dev = ape_device.ape_device(host, port, name)
 
     def get_avg(self):
