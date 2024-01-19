@@ -104,7 +104,6 @@ class APEAutocorrelator(Device):
     trigDly = attribute(
         label = 'Trigger delay',
         dtype = str,
-        unit = 'us',
         access = AttrWriteType.READ
     )
     trigFrq = attribute(
@@ -277,6 +276,6 @@ if __name__ == "__main__":
 
 '''
         avereage ["OFF","LOW (2)","Medium (4)", High (8), Very high (16)]
-        setscanrange
+        resolution [200,500,1000,1500,2000]
 
         '''
