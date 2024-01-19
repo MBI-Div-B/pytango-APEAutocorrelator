@@ -54,7 +54,7 @@ class APEAutocorrelator(Device):
     )
     res = attribute(
         label= 'set number of data points used for averaging',
-        dtype= str,
+        dtype= resEnum,
         access= AttrWriteType.READ_WRITE
     )
     fitType = attribute(
