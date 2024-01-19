@@ -1,6 +1,7 @@
 import APEAutocorrelatorHandler
 from tango import AttrWriteType, DevState, AttrWriteType, DispLevel, DebugIt
 from tango.server import Device, attribute, command, device_property
+from enum import IntEnum
 
 class avgEnum(IntEnum):
     _0 = 0
