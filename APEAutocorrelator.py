@@ -74,7 +74,7 @@ class APEAutocorrelator(Device):
     scanRange = attribute(
         label = 'Set scan range',
         dtype = scanEnum,
-        unit = fs,
+        unit = 'fs',
         access = AttrWriteType.READ_WRITE
     )
     gain = attribute(
