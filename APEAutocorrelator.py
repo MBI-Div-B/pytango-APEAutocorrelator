@@ -43,7 +43,7 @@ class APEAutocorrelator(Device):
         dtype=str,
     )
     Port = device_property(
-        dtype=str,
+        dtype=int,
     )
 
     averaging = attribute(
