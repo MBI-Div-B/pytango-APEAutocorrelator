@@ -234,9 +234,9 @@ class APEAutocorrelator(Device):
     def read_trigImp(self):
         return self.corr.get_trigImp()
         
-    '''def read_rawData(self):
+    def read_rawData(self):
         return self.corr.get_rawData()
-'''
+
     def read_shutterFix(self):
         return self.corr.get_shutterFix()
 
