@@ -118,12 +118,12 @@ class APEAutocorrelator(Device):
         unit = 'Ohms',
         access = AttrWriteType.READ
     )
-    rawData = attribute(
+    '''rawData = attribute(
         label = 'Raw Data',
         dtype = list,
         access = AttrWriteType.READ
     )
-    ### more Data attributes to be added
+    ### more Data attributes to be added'''
 
     shutterFix = attribute(
         label = 'Set fix-shutter poition',
@@ -227,9 +227,9 @@ class APEAutocorrelator(Device):
     def read_trigImp(self):
         return corr.get_trigImp()
         
-    def read_rawData(self):
+    '''def read_rawData(self):
         return corr.get_rawData()
-
+'''
     def read_shutterFix(self):
         return corr.get_shutterFix()
 
