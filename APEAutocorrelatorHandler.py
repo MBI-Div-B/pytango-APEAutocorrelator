@@ -24,7 +24,7 @@ class APEAutocorrelatorHandler(object):
     def set_filt(self, num):
         self.dev.send(":STATUS:FILTER "+str(int(num)))
     def get_scan(self):
-        return self.dev.query(":MOTOR:SCANRANGE?")
+        return {"500":0,"1500":1,"5000":2, "15000":3, "50000":4, "150000":5}[self.dev.query(":MOTOR:SCANRANGE?")]
     def set_scan(self, num):
         self.dev.send(":MOTOR:SCANRANGE "+str(int(num)))
     def get_gain(self):
