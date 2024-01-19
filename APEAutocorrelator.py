@@ -149,12 +149,12 @@ class APEAutocorrelator(Device):
         access = AttrWriteType.READ
     )
     FWHM = attribute(
-        lable="FWHM",
+        label="FWHM",
         dtype=float,
         access=AttrWriteType.READ
     )
     FITFWHM = attribute(
-        lable="Fitted FWHM value",
+        label="Fitted FWHM value",
         dtype=float,
         access=AttrWriteType.READ
     )
