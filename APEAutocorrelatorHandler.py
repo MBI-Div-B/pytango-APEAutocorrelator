@@ -7,11 +7,11 @@ class APEAutocorrelatorHandler(object):
     def get_avg(self):
         print("test1")
         print(self.dev.query("*idn?"))
-        test = int(self.dev.query("STATUS:AVERAGE?"))
+        test = int(self.dev.query(":STATUS:AVERAGE?"))
         print("test")
         return test
     def set_avg(self, num):
-        self.dev.send("STATUS:AVERAGE "+str(num))
+        self.dev.send(":STATUS:AVERAGE "+str(num))
     def get_res(self):
         return int(self.dev.query("RESOLUTION?"))
     def set_res(self, num):
