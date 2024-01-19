@@ -17,7 +17,7 @@ class APEAutocorrelatorHandler(object):
     def set_res(self, num):
         self.dev.send(":STATUS:RESOLUTION "+str(num))  
     def get_fit(self):
-        return int(self.dev.query("FITTYPE?"))
+        return int(self.dev.query(":STATUS:FITTYPE?"))
     def set_fit(self, num):
         self.dev.send(":STATUS:FITTYPE "+str(num)) 
     def get_running(self):
