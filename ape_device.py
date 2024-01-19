@@ -125,7 +125,7 @@ class ape_device:
 
             return answer
 
-    def query(self, command, block=False):
+    def query(self, command, block=True):
         answer = bytearray([])
         self.send(command)
         if block == False:
