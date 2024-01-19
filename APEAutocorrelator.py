@@ -278,7 +278,7 @@ class APEAutocorrelator(Device):
         return self.corr.get_dispData()
     
     def read_aveInte(self):
-        self._aveInte, self._minInte, self._maxInte = get_meanData
+        self._aveInte, self._minInte, self._maxInte = get_meanData()
         return self._aveInte
     
     def read_minInte(self):
