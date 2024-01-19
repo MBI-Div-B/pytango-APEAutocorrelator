@@ -120,7 +120,7 @@ class APEAutocorrelator(Device):
     )
     rawData = attribute(
         label = 'Raw Data',
-        dtype = 'DevVarDoubleArray',
+        dtype = list,
         access = AttrWriteType.READ
     )
     ### more Data attributes to be added
