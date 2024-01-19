@@ -1,4 +1,5 @@
 import ape_device
+import numpy as np
 
 class APEAutocorrelatorHandler(object):
     def __init__(self, host, port, name = "Ape device"):
@@ -51,7 +52,10 @@ class APEAutocorrelatorHandler(object):
     def get_trigImp(self):
         return int(self.dev.query(":TRIGGER:IMP?"))
     def get_rawData(self):
-        return self.dev.query(":ACF:DATA?",block=True)
+        acf_binary_data = self.dev.query(":ACF:DATA?",block=True)
+        acf = np.fromstring(acf_binary_data, dtype=np.float64)
+        print(acf.type)
+        return acf
     ### not usre what data format to exlpect and how to extract
     ### to be done when device in avalablie 
     def get_shutterFix(self):

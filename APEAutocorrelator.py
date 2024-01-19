@@ -2,6 +2,7 @@ import APEAutocorrelatorHandler
 from tango import AttrWriteType, DevState, AttrWriteType, DispLevel, DebugIt
 from tango.server import Device, attribute, command, device_property
 from enum import IntEnum, Flag
+import numpy as np
 
 class avgEnum(IntEnum):
     _0 = 0
@@ -120,7 +121,7 @@ class APEAutocorrelator(Device):
     )
     rawData = attribute(
         label = 'Raw Data',
-        dtype = str,
+        dtype = np.ndarray,
         access = AttrWriteType.READ
     )
     ### more Data attributes to be added
