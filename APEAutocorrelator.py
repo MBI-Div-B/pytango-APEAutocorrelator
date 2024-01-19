@@ -126,7 +126,38 @@ class APEAutocorrelator(Device):
         max_dim_y=1024,
         access = AttrWriteType.READ
     )
-    ### more Data attributes to be added
+    dispData = attribute(
+        label = 'displayed Data',
+        dtype = ((float,),),
+        max_dim_x=1024,
+        max_dim_y=1024,
+        access = AttrWriteType.READ
+    )
+    aveInte = attribute(
+        label = 'Average Intensity',
+        dtype = float,
+        access = AttrWriteType.READ
+    )
+    minInte = attribute(
+        label = 'minimum Intensity',
+        dtype = float,
+        access = AttrWriteType.READ
+    )
+    maxInte = attribute(
+        label = 'maximum Intensety',
+        dtype = float,
+        access = AttrWriteType.READ
+    )
+    FWHM = attribute(
+        lable="FWHM",
+        dtype=float,
+        access=AttrWriteType.READ
+    )
+    FITFWHM = attribute(
+        lable="Fitted FWHM value",
+        dtype=float,
+        access=AttrWriteType.READ
+    )
 
     shutterFix = attribute(
         label = 'Set fix-shutter poition',
@@ -170,6 +201,9 @@ class APEAutocorrelator(Device):
         self.set_state(DevState.INIT)
         self.corr = APEAutocorrelatorHandler.APEAutocorrelatorHandler(self.Host, self.Port)
         self.set_state(DevState.ON)
+        _aveInte = 0
+        _maxInte = 0
+        _minInte = 0
         
     
 
@@ -238,8 +272,26 @@ class APEAutocorrelator(Device):
         return self.corr.get_trigImp()
         
     def read_rawData(self):
-        print(self.corr.get_rawData())
         return self.corr.get_rawData()
+
+    def read_dispData(self):
+        return self.corr.get_dispData()
+    
+    def read_aveInte(self):
+        _aveInte, _minInte, _maxInte = get_meanData
+        return _aveInte
+    
+    def read_minInte(self):
+        return _minInte
+
+    def read_maxInte(self):
+        return _maxInte
+
+    def read_FWHM(self):
+        return get_FWHM()
+
+    def read_FITFWHM(self):
+        return get_FITFWHM()
 
     def read_shutterFix(self):
         return self.corr.get_shutterFix()
@@ -274,9 +326,3 @@ class APEAutocorrelator(Device):
 if __name__ == "__main__":
     APEAutocorrelator.run_server()
 
-
-'''
-        avereage ["OFF","LOW (2)","Medium (4)", High (8), Very high (16)]
-        resolution [200,500,1000,1500,2000]
-
-        '''

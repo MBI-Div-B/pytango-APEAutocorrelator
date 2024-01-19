@@ -48,12 +48,22 @@ class APEAutocorrelatorHandler(object):
     def get_trigImp(self):
         return int(self.dev.query(":TRIGGER:IMP?"))
     def get_rawData(self):
+        acf_binary_data = bytes(self.dev.query(":ACF:DATA?",block=True))
+        acf = np.fromstring(acf_binary_data, dtype=np.float64)
+        acf = acf.reshape(int(acf.shape[0]/2),2)
+        return acf.T
+    def get_dispData(self):
         acf_binary_data = bytes(self.dev.query(":ACF:DACF?",block=True))
         acf = np.fromstring(acf_binary_data, dtype=np.float64)
         acf = acf.reshape(int(acf.shape[0]/2),2)
         return acf.T
-    ### not usre what data format to exlpect and how to extract
-    ### to be done when device in avalablie 
+    def get_meanData(self):
+        temp = self.dev.query(":ACF:DACF?").split(";")
+        return float(temp[0]),float(temp[3]),float(temp[4])
+    def get_FWHM(self):
+        return float(self.dev.query(":ACF:FWHM?"))
+    def get_FITFWHM(self):
+        return float(self.dev.query(":ACF:FITFWHM?"))
     def get_shutterFix(self):
         return int(self.dev.query(":SHUTTER:FIX?"))
     def set_shutterFix(self, num):
