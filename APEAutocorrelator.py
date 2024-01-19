@@ -275,8 +275,8 @@ if __name__ == "__main__":
     APEAutocorrelator.run_server()
 
 
-        '''
-         avereage ["OFF","LOW (2)","Medium (4)", High (8), Very high (16)]
-         setscanrange
+'''
+        avereage ["OFF","LOW (2)","Medium (4)", High (8), Very high (16)]
+        setscanrange
 
         '''
